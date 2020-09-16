@@ -9,3 +9,18 @@ make a new project on Firebase
 7. React Graph & Chart -> npm install --save react-chartjs-2 chart.js
 8. npm install numeral
 9. map -> npm i leaflet (or npm i react-leaflet)
+10. deploy using firebase
+npm i -g firebase-tools
+firebase login
+firebase init
+select -> deply Firebase Hosting sites
+Use an existing project
+select a folder
+What do you wnat to use as your public directory? build
+Configure as a single-page app? Yes
+
+npm run build
+
+firebase deploy
+
+-The end-

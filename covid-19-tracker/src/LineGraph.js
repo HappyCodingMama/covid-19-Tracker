@@ -46,7 +46,8 @@ const options = {
       },
 }
 
-const buildChartData = (data, casesType = 'cases') => {
+// const buildChartData = (data, casesType = 'cases') => {
+const buildChartData = (data, casesType) => {
       let chartData = [];
       let lastDataPoint;
       // data[casesType].forEach(date => 
@@ -66,7 +67,8 @@ const buildChartData = (data, casesType = 'cases') => {
 
 
 
-function LineGraph({ casesType = 'cases' }) {
+// function LineGraph({ casesType = 'cases' }) {
+function LineGraph({ casesType, ...props }) {
       const [data, setData] = useState({});
 
       useEffect(() => {
@@ -74,7 +76,8 @@ function LineGraph({ casesType = 'cases' }) {
                   await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=120')
                         .then(response => response.json())
                         .then(data => {
-                              let chartData = buildChartData(data, 'cases');
+                              // let chartData = buildChartData(data, 'cases');
+                              let chartData = buildChartData(data, casesType);
 
                               // const chartData = buildChartData(data);
                               setData(chartData);
@@ -86,11 +89,10 @@ function LineGraph({ casesType = 'cases' }) {
 
 
       return (
-            <div>
-                  <h1>I'm a graph</h1>
+            <div className={props.className}>
                   {data?.length > 0 && (
                         <Line
-                              options={options}
+
                               data={{
                                     datasets: [
                                           {
@@ -100,11 +102,12 @@ function LineGraph({ casesType = 'cases' }) {
                                           }
                                     ],
                               }}
+                              options={options}
                         />
                   )}
 
             </div>
-      )
+      );
 }
 
-export default LineGraph
+export default LineGraph;
