@@ -1,0 +1,11 @@
+to begin with -
+1. execute npm package binaries -> npm install -g npx
+2. ls
+3. npx create-react-app covid-19-tracker
+make a new project on Firebase
+4. check directory -> cd covid-19-tracker
+5. npm start
+6. with material UI ->  npm install @material-ui/core
+7. React Graph & Chart -> npm install --save react-chartjs-2 chart.js
+8. npm install numeral
+9. map -> npm i leaflet (or npm i react-leaflet)
